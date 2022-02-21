@@ -1,0 +1,10 @@
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\x64\Debug\SandBox-202124070.exe.config
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\x64\Debug\SandBox-202124070.exe
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\x64\Debug\SandBox-202124070.pdb
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox-202124070.csproj.AssemblyReference.cache
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox_202124070.InitFormWin.resources
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox_202124070.Properties.Resources.resources
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox-202124070.csproj.GenerateResource.cache
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox-202124070.csproj.CoreCompileInputs.cache
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox-202124070.exe
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\x64\Debug\SandBox-202124070.pdb

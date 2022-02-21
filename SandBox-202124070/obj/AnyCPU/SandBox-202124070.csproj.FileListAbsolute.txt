@@ -1,0 +1,16 @@
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\SandBox-202124070.exe.config
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\SandBox-202124070.exe
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Buffers.dll
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Memory.dll
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Numerics.Vectors.dll
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Buffers.xml
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Memory.xml
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Numerics.Vectors.xml
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\bin\AnyCPU\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox_202124070.InitFormWin.resources
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox_202124070.Properties.Resources.resources
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.csproj.GenerateResource.cache
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.csproj.CoreCompileInputs.cache
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.csproj.CopyComplete
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.exe
