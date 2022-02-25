@@ -56,18 +56,15 @@ class Sandboxer : MarshalByRefObject
 
             StrongName fullTrustAssembly = typeof(Sandboxer).Assembly.Evidence.GetHostEvidence<StrongName>();
 
-            Assembly utilAssembly = typeof(Utils).Assembly;
-            StrongName utils = utilAssembly.Evidence.GetHostEvidence<StrongName>();
-
-            AppDomain newDomain = AppDomain.CreateDomain("Sandbox", AppDomain.CurrentDomain.Evidence, setup, sandBoxPermissions, utils);
+            AppDomain newDomain = AppDomain.CreateDomain("Sandbox", AppDomain.CurrentDomain.Evidence, setup, sandBoxPermissions, fullTrustAssembly);
            
             // String[] args= null;
             try
             {
                 
                 // SetFolderPermission(pathToUntrusted);
-                var assembly = Assembly.LoadFile(pathToUntrusted);
-                newDomain.ExecuteAssembly(assembly.Location);
+               // var assembly = Assembly.LoadFrom(pathToUntrusted);
+                newDomain.ExecuteAssembly(pathToUntrusted);
 
                 Console.WriteLine("DEBUG -- , Sandboxer :: ExecuteAssembly(...)\n");
 
