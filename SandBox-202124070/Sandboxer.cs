@@ -21,7 +21,6 @@ using Microsoft.VisualBasic.CompilerServices;
 //The Sandboxer class needs to derive from MarshalByRefObject so that we can create it in another
 // AppDomain and refer to it from the default AppDomain.
 
-
 [AspNetHostingPermission(SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Medium)]
 class Sandboxer : MarshalByRefObject
 {
@@ -35,16 +34,7 @@ class Sandboxer : MarshalByRefObject
         try
         {
             Console.WriteLine("DEBUG -- , Sandboxer :: ExecuteUntrustedCodeFromSandBox(...)\n");
-
-            /*string pluginFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "plugins");
-            string plugInPath = Path.Combine(pluginFolder, "winrar-x64-610.exe");*/
-
-            //UntrustedClass untrustedClass = new UntrustedClass();
-            //untrustedClass.AssignFileName(pathToUntrusted);
-
-            //Type fileType = typeof(UntrustedClass);
             const string DomainName = "Sandbox";
-
             var setup = new AppDomainSetup()
             {
                 ApplicationBase = Path.GetFullPath(pathToUntrusted),
@@ -54,42 +44,17 @@ class Sandboxer : MarshalByRefObject
                 DisallowPublisherPolicy = true
             };
 
-            StrongName fullTrustAssembly = typeof(Sandboxer).Assembly.Evidence.GetHostEvidence<StrongName>();
+            Assembly assembly = typeof(Utils).Assembly;
+            StrongName fullTrustAssembly = assembly.Evidence.GetHostEvidence<StrongName>();
 
             AppDomain newDomain = AppDomain.CreateDomain("Sandbox", AppDomain.CurrentDomain.Evidence, setup, sandBoxPermissions, fullTrustAssembly);
-           
-            // String[] args= null;
+        
             try
             {
-                
-                // SetFolderPermission(pathToUntrusted);
-               // var assembly = Assembly.LoadFrom(pathToUntrusted);
-                newDomain.ExecuteAssembly(pathToUntrusted);
+                var LoadedAssembly = Assembly.LoadFrom(pathToUntrusted);
+                newDomain.ExecuteAssembly(LoadedAssembly.Location);
 
                 Console.WriteLine("DEBUG -- , Sandboxer :: ExecuteAssembly(...)\n");
-
-                //newDomain.ExecuteAssembly(plugInPath);
-
-                /* ObjectHandle handle = Activator.CreateInstanceFrom(
-                     newDomain, typeof(Sandboxer).Assembly.ManifestModule.FullyQualifiedName, 
-                     typeof(Sandboxer).FullName);
-
-                 Sandboxer newDomainInstance = (Sandboxer)handle.Unwrap();
-                 newDomainInstance.ExecuteUntrustedCode(untrustedAssembly, untrustedClass, entryPoint, parameters);*/
-
-
-                // System.Diagnostics.Process runProcess = new System.Diagnostics.Process();
-
-                //runProcess.StartInfo.FileName = pathToUntrusted;
-                // runProcess.StartInfo.Arguments = "args";
-
-                //runProcess.Start();
-                //runProcess.WaitForExit();
-
-                // Thread.Sleep(20000);
-
-                //runProcess.Close();
-
             }
             catch (Exception ex)
             {
@@ -107,20 +72,6 @@ class Sandboxer : MarshalByRefObject
             Console.WriteLine(ex.Message);
             MessageBox.Show(ex.Message, "Error");
         }
-
-
-
-
-        //Use CreateInstanceFrom to load an instance of the Sandboxer class into the
-        //new AppDomain.
-        /* ObjectHandle handle = Activator.CreateInstanceFrom(
-             newDomain, typeof(Sandboxer).Assembly.ManifestModule.FullyQualifiedName,
-             typeof(Sandboxer).FullName
-             );
-         //Unwrap the new domain instance into a reference in this domain and use it to execute the
-         //untrusted code.
-         Sandboxer newDomainInstance = (Sandboxer)handle.Unwrap();
-         newDomainInstance.ExecuteUntrustedCode(untrustedAssembly, untrustedClass, entryPoint, parameters);*/
     }
 
 
@@ -178,9 +129,6 @@ class Sandboxer : MarshalByRefObject
             };
 
             var permissions = new PermissionSet(PermissionState.None);
-            // permissions.AddPermission(new ReflectionPermission(ReflectionPermissionFlag.RestrictedMemberAccess));
-            //permissions.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
-
             var domain = AppDomain.CreateDomain(DomainName, null, setup, permissions,
                 typeof(Sandboxer).Assembly.Evidence.GetHostEvidence<StrongName>());
 
@@ -189,19 +137,9 @@ class Sandboxer : MarshalByRefObject
             new FileIOPermission(FileIOPermissionAccess.Read | FileIOPermissionAccess.PathDiscovery, assemblyPath).Assert();
             var assembly = Assembly.LoadFile(assemblyPath);
             CodeAccessPermission.RevertAssert();
-
-
             domain.Load(assembly.GetName());
-
             Type[] type = assembly.GetTypes();
-
-
             var instance = Activator.CreateInstance(type[0]);
-
-            //AppDomain.Unload(domain);
-
-
-            //type[0].GetMethod("").Invoke(instance, parameters);
         }
         catch (Exception ex)
         {

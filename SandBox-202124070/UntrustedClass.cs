@@ -13,8 +13,6 @@ namespace SandBox_202124070
     {
         public IPlugin AssignFileName(string filePath)
         {
-            //File.Exists(assignFileName);
-
             Assembly ass = Assembly.LoadFile(filePath);
             foreach(Type type in ass.GetTypes())
             {

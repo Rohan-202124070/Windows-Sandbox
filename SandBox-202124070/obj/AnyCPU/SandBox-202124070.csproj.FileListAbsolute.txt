@@ -14,3 +14,4 @@ C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandB
 C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.csproj.CoreCompileInputs.cache
 C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.csproj.CopyComplete
 C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.exe
+C:\Users\rnire\source\repos\SandBox-202124070\SandBox-202124070\obj\AnyCPU\SandBox-202124070.csproj.AssemblyReference.cache

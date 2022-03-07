@@ -11,6 +11,8 @@ namespace SandBox_202124070
 {
     class InitFormWin : Form
     {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        
         private Button buttonCancel;
         private ComboBox comboBoxPathFile;
         private Button buttonEnter;
@@ -50,6 +52,10 @@ namespace SandBox_202124070
 
         public InitFormWin()
         {
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
             InitializeComponent();
         }
 
@@ -552,13 +558,13 @@ namespace SandBox_202124070
 
         private void RunButtonClick(object sender, EventArgs e)
         {
-            //filePath = comboBoxPathFile.Text;
             Sandboxer sandboxer = new Sandboxer();
             SandBoxPermissions sandBoxPermissions = new SandBoxPermissions();
             if (null == filePath || filePath.Equals(""))
             {
                 MessageBox.Show("Please Select File path", "Error");
-            } else
+            }
+            else
             {
                 sandBoxPermissions.setAllPermissions(filePath, (string)comboBoxPermissionState.SelectedItem,
                   (string)comboBoxReflectionPermission.SelectedItem, (string)comboBoxSecurityPermission.SelectedItem,
@@ -578,38 +584,22 @@ namespace SandBox_202124070
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             var fileContent = string.Empty;
-           // var filePath = string.Empty;
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
-                openFileDialog.RestoreDirectory = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    //var fileStream = openFileDialog.OpenFile();
-
-                   // using (StreamReader reader = new StreamReader(fileStream))
-                    //{
-                     //   fileContent = reader.ReadToEnd();
-                    //}
-
-
-                }
-
-                comboBoxPathFile.Text = filePath;
+                //Get the path of specified file
+                filePath = openFileDialog.FileName;
+                openFileDialog.InitialDirectory = filePath;
             }
+
+            comboBoxPathFile.Text = filePath;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -664,7 +654,7 @@ namespace SandBox_202124070
 
         private void comboBoxFileIOPermission_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void InitFormWin_Load(object sender, EventArgs e)

@@ -294,15 +294,10 @@ namespace SandBox_202124070
                     permissions.AddPermission(new SqlClientPermission(permissionStateValue));
                     permissions.AddPermission(new WebPermission(permissionStateValue));
                     permissions.AddPermission(new TypeDescriptorPermission(permissionStateValue));
-
-                    // permissions.AddPermission(new SocketPermission(
-                    //   network, transport, hostName, (null != portNumber && !portNumber.Equals("") ? Int32.Parse(portNumber) : 8008)));
-
                     permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
                     permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
                     permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));
                     permissions.AddPermission(new FileIOPermission(fileIOPermissionAccess, pathToUntrusted));
-                    //permissions.AddPermission(new EnvironmentPermission(environmentPermissionAccess, pathList));
                     permissions.AddPermission(new AspNetHostingPermission(aspNetHostingPermissionLevel));
                     permissions.AddPermission(new StorePermission(storePermissionFlags));
                     permissions.AddPermission(new UIPermission(uIPermissionWindow));
@@ -439,10 +434,8 @@ namespace SandBox_202124070
                 permissions.AddPermission(new SqlClientPermission(permissionStateValue));
                 permissions.AddPermission(new WebPermission(permissionStateValue));
                 permissions.AddPermission(new TypeDescriptorPermission(permissionStateValue));
-
                 permissions.AddPermission(new SocketPermission(
                     network, transport, hostName, (null != portNumber && !portNumber.Equals("") ? Int32.Parse(portNumber) : 8008)));
-
                 permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
                 permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
                 permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));
@@ -466,10 +459,8 @@ namespace SandBox_202124070
             permissions.AddPermission(new SqlClientPermission(permissionStateValue));
             permissions.AddPermission(new WebPermission(permissionStateValue));
             permissions.AddPermission(new TypeDescriptorPermission(permissionStateValue));
-
             permissions.AddPermission(new SocketPermission(
                 network,  transport, "localhost", 8008));
-
             permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
             permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
             permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));

@@ -33,11 +33,6 @@ namespace SandBox_202124070
                 } while (!terminateExcution);
             }
 
-
-
-
-            //Sandboxer sa = new Sandboxer();
-            //sa.ExecuteUntrustedCodeFromSandBox();
         }
     }
 }
