@@ -20,7 +20,6 @@ using Microsoft.VisualBasic.CompilerServices;
 
 //The Sandboxer class needs to derive from MarshalByRefObject so that we can create it in another
 // AppDomain and refer to it from the default AppDomain.
-
 [AspNetHostingPermission(SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Medium)]
 class Sandboxer : MarshalByRefObject
 {
@@ -46,20 +45,21 @@ class Sandboxer : MarshalByRefObject
 
             Assembly assembly = typeof(Utils).Assembly;
             StrongName fullTrustAssembly = assembly.Evidence.GetHostEvidence<StrongName>();
+            var platform = Assembly.GetExecutingAssembly();
+            var name = platform.FullName + ": Sandbox " + Guid.NewGuid();
+            var setup1 = new AppDomainSetup { ApplicationBase = Path.GetDirectoryName(platform.Location) };
 
-            AppDomain newDomain = AppDomain.CreateDomain("Sandbox", AppDomain.CurrentDomain.Evidence, setup, sandBoxPermissions, fullTrustAssembly);
-        
+            var newDomain = AppDomain.CreateDomain(name, null, setup1, sandBoxPermissions);
             try
             {
-                var LoadedAssembly = Assembly.LoadFrom(pathToUntrusted);
-                newDomain.ExecuteAssembly(LoadedAssembly.Location);
+                newDomain.ExecuteAssembly(pathToUntrusted);
 
                 Console.WriteLine("DEBUG -- , Sandboxer :: ExecuteAssembly(...)\n");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show(ex.Message, "Error");
+                MessageBox.Show(ex.Message , "Error");
             }
             finally
             {

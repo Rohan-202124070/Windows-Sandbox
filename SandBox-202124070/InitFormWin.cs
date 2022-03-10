@@ -17,8 +17,6 @@ namespace SandBox_202124070
         private ComboBox comboBoxPathFile;
         private Button buttonEnter;
         private Button btnBrowse;
-        private Label label1;
-        private ComboBox comboBoxPermissionState;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -39,15 +37,6 @@ namespace SandBox_202124070
         private ComboBox comboBoxStorePermission;
         private Label label11;
         private ComboBox comboBoxUIPermission;
-        private Label label12;
-        private Label label13;
-        private ComboBox comboBoxNetworkAccess;
-        private Label label14;
-        private ComboBox comboBoxTransportType;
-        private Label label15;
-        private TextBox textBoxHostName;
-        private TextBox textBoxPortNumber;
-        private Label label16;
         private string filePath = "";
 
         public InitFormWin()
@@ -65,8 +54,6 @@ namespace SandBox_202124070
             this.buttonCancel = new System.Windows.Forms.Button();
             this.comboBoxPathFile = new System.Windows.Forms.ComboBox();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxPermissionState = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -87,20 +74,11 @@ namespace SandBox_202124070
             this.comboBoxStorePermission = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxUIPermission = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBoxNetworkAccess = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBoxTransportType = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBoxHostName = new System.Windows.Forms.TextBox();
-            this.textBoxPortNumber = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(946, 607);
+            this.buttonEnter.Location = new System.Drawing.Point(742, 513);
             this.buttonEnter.Name = "buttonEnter";
             this.buttonEnter.Size = new System.Drawing.Size(89, 35);
             this.buttonEnter.TabIndex = 0;
@@ -110,7 +88,7 @@ namespace SandBox_202124070
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(833, 607);
+            this.buttonCancel.Location = new System.Drawing.Point(620, 513);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(98, 35);
             this.buttonCancel.TabIndex = 1;
@@ -124,43 +102,19 @@ namespace SandBox_202124070
             this.comboBoxPathFile.IntegralHeight = false;
             this.comboBoxPathFile.Location = new System.Drawing.Point(105, 40);
             this.comboBoxPathFile.Name = "comboBoxPathFile";
-            this.comboBoxPathFile.Size = new System.Drawing.Size(826, 28);
+            this.comboBoxPathFile.Size = new System.Drawing.Size(613, 28);
             this.comboBoxPathFile.TabIndex = 2;
             this.comboBoxPathFile.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(945, 36);
+            this.btnBrowse.Location = new System.Drawing.Point(741, 36);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(90, 28);
             this.btnBrowse.TabIndex = 4;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 118);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Permission State : ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // comboBoxPermissionState
-            // 
-            this.comboBoxPermissionState.DisplayMember = "(none)";
-            this.comboBoxPermissionState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPermissionState.FormattingEnabled = true;
-            this.comboBoxPermissionState.Items.AddRange(new object[] {
-            "None",
-            "Unrestricted"});
-            this.comboBoxPermissionState.Location = new System.Drawing.Point(163, 115);
-            this.comboBoxPermissionState.Name = "comboBoxPermissionState";
-            this.comboBoxPermissionState.Size = new System.Drawing.Size(158, 28);
-            this.comboBoxPermissionState.TabIndex = 6;
-            this.comboBoxPermissionState.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // label2
             // 
@@ -175,7 +129,7 @@ namespace SandBox_202124070
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 84);
+            this.label3.Location = new System.Drawing.Point(34, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(233, 20);
             this.label3.TabIndex = 8;
@@ -422,106 +376,9 @@ namespace SandBox_202124070
             this.comboBoxUIPermission.Size = new System.Drawing.Size(158, 28);
             this.comboBoxUIPermission.TabIndex = 26;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(30, 471);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(152, 20);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Socket Permission : ";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(209, 471);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(127, 20);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Network Access ";
-            // 
-            // comboBoxNetworkAccess
-            // 
-            this.comboBoxNetworkAccess.DisplayMember = "(none)";
-            this.comboBoxNetworkAccess.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxNetworkAccess.FormattingEnabled = true;
-            this.comboBoxNetworkAccess.Items.AddRange(new object[] {
-            "Accept",
-            "Connect"});
-            this.comboBoxNetworkAccess.Location = new System.Drawing.Point(190, 494);
-            this.comboBoxNetworkAccess.Name = "comboBoxNetworkAccess";
-            this.comboBoxNetworkAccess.Size = new System.Drawing.Size(158, 28);
-            this.comboBoxNetworkAccess.TabIndex = 29;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(402, 471);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(115, 20);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Transport Type";
-            // 
-            // comboBoxTransportType
-            // 
-            this.comboBoxTransportType.DisplayMember = "(none)";
-            this.comboBoxTransportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTransportType.FormattingEnabled = true;
-            this.comboBoxTransportType.Items.AddRange(new object[] {
-            "All",
-            "Connectionless",
-            "ConnectionOriented",
-            "Tcp",
-            "Udp"});
-            this.comboBoxTransportType.Location = new System.Drawing.Point(377, 494);
-            this.comboBoxTransportType.Name = "comboBoxTransportType";
-            this.comboBoxTransportType.Size = new System.Drawing.Size(158, 28);
-            this.comboBoxTransportType.TabIndex = 31;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(603, 471);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 20);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "Host Name";
-            // 
-            // textBoxHostName
-            // 
-            this.textBoxHostName.Location = new System.Drawing.Point(571, 494);
-            this.textBoxHostName.Name = "textBoxHostName";
-            this.textBoxHostName.Size = new System.Drawing.Size(158, 26);
-            this.textBoxHostName.TabIndex = 33;
-            // 
-            // textBoxPortNumber
-            // 
-            this.textBoxPortNumber.Location = new System.Drawing.Point(773, 494);
-            this.textBoxPortNumber.Name = "textBoxPortNumber";
-            this.textBoxPortNumber.Size = new System.Drawing.Size(158, 26);
-            this.textBoxPortNumber.TabIndex = 34;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(806, 471);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 20);
-            this.label16.TabIndex = 35;
-            this.label16.Text = "Port Number";
-            // 
             // InitFormWin
             // 
-            this.ClientSize = new System.Drawing.Size(1052, 670);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBoxPortNumber);
-            this.Controls.Add(this.textBoxHostName);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.comboBoxTransportType);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.comboBoxNetworkAccess);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.ClientSize = new System.Drawing.Size(866, 571);
             this.Controls.Add(this.comboBoxUIPermission);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBoxStorePermission);
@@ -542,8 +399,6 @@ namespace SandBox_202124070
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBoxPermissionState);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.comboBoxPathFile);
             this.Controls.Add(this.buttonCancel);
@@ -566,12 +421,11 @@ namespace SandBox_202124070
             }
             else
             {
-                sandBoxPermissions.setAllPermissions(filePath, (string)comboBoxPermissionState.SelectedItem,
+                sandBoxPermissions.setAllPermissions(filePath,
                   (string)comboBoxReflectionPermission.SelectedItem, (string)comboBoxSecurityPermission.SelectedItem,
                   (string)comboBoxFileDialogPermission.SelectedItem, (string)comboBoxFileIOPermission.SelectedItem,
                  (string)comboBoxEnvironmentPermission.SelectedItem, textBoxPathList.Text, (string)comboBoxAspNetHostingPermission.SelectedItem,
-                 (string)comboBoxStorePermission.SelectedItem, (string)comboBoxUIPermission.SelectedItem, (string)comboBoxNetworkAccess.SelectedItem,
-                 (string)comboBoxTransportType.SelectedItem, textBoxHostName.Text, textBoxPortNumber.Text);
+                 (string)comboBoxStorePermission.SelectedItem, (string)comboBoxUIPermission.SelectedItem);
 
                 sandboxer.ExecuteUntrustedCodeFromSandBox(filePath, sandBoxPermissions.GetPermissionSet());
             }
@@ -659,17 +513,14 @@ namespace SandBox_202124070
 
         private void InitFormWin_Load(object sender, EventArgs e)
         {
-            comboBoxPermissionState.SelectedIndex = 1;
             comboBoxReflectionPermission.SelectedIndex = 2;
-            comboBoxSecurityPermission.SelectedIndex = 11;
+            comboBoxSecurityPermission.SelectedIndex = 9;
             comboBoxFileDialogPermission.SelectedIndex = 1;
             comboBoxFileIOPermission.SelectedIndex = 0;
             comboBoxEnvironmentPermission.SelectedIndex = 0;
             comboBoxAspNetHostingPermission.SelectedIndex = 0;
             comboBoxStorePermission.SelectedIndex = 1;
             comboBoxUIPermission.SelectedIndex = 0;
-            comboBoxNetworkAccess.SelectedIndex = 1;
-            comboBoxTransportType.SelectedIndex = 0;
         }
 
         private void label8_Click(object sender, EventArgs e)

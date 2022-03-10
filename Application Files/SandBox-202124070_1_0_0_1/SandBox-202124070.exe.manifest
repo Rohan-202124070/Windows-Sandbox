@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SandBox-202124070.exe" version="1.0.0.1" publicKeyToken="77a8f5696c7e7fdb" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="SandBox-202124070" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="SandBox-202124070.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SandBox-202124070.exe" size="37304">
+      <assemblyIdentity name="SandBox-202124070" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>xo4XnmTs7/RUJ893jus2G/Qs0ZWwB4FCC+JOT7DbLoY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Buffers.dll" size="20856">
+      <assemblyIdentity name="System.Buffers" version="4.0.3.0" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rMzPvkXZ8I/+7ZkW43sz6YxlvgEs//bn+ntnIQzh/vs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Memory.dll" size="141184">
+      <assemblyIdentity name="System.Memory" version="4.0.1.1" publicKeyToken="CC7B13FFCD2DDD51" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jnYxjosGaSq/fasRadJ9FVV/fwo002r2Rj7/D+ISE8c=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Numerics.Vectors.dll" size="115856">
+      <assemblyIdentity name="System.Numerics.Vectors" version="4.1.4.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>HT74aYKB589zcdFVSv71hys5+Wwm2nciEKM9oEG6EYM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Runtime.CompilerServices.Unsafe.dll" size="16768">
+      <assemblyIdentity name="System.Runtime.CompilerServices.Unsafe" version="4.0.4.1" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ZkCfZwMVr+hhDxek06HuUtcrakbFRM7JdUToOF+QrXQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="SandBox-202124070.exe.config" size="218">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>t1Twr9KAG8gM+s5/RSD2vhZdml5GEWGdBY/fpLSF3ts=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ROHAN-PC\rnire" issuerKeyHash="458465c00711d783efc3ec1cbae4894b6ae43d0c" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>64EHX7hfofhr0KOH1qsLU/ZXio4Qq19gRNtAPmas+Bc=</DigestValue></Reference></SignedInfo><SignatureValue>u1W/LmbIcp3tI94BRDQ2vxHI0wrICJNDRcXZPupL/YxC7vC4KKhplD0ggBG64D07XaVP1VG3SqJ56wnp1ummST5GhKk58M1p4zXWX6RKD/gVQ3J60x4xINNYs/JpGowD3w9Y/w4weNX/IcPZeO7yHtzzi6CcYqw8q0I9wjzb+U8=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>u5DVtSvsQvHWqHNw7MC9SmUB3OMeXPguxZZCXybq+N3rjYzslPMJ2EHuonMUdQmbcLflYjKN/9z/aimg1+IdLGkqd3KOY3IMo8gh8TDiV3XDOY/L4jELdAvfIefx+smdFFkzOnww57DaL0tJPV/HfvuxMoCqJCq6FrYQrJaYyzk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="17f8ac663e40db44605fab108e8a57f6530babd687a3d06bf8a15fb85f0781eb" Description="" Url=""><as:assemblyIdentity name="SandBox-202124070.exe" version="1.0.0.1" publicKeyToken="77a8f5696c7e7fdb" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ROHAN-PC\rnire</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>015loYRpVxA4l8cjgZgZbvwCGz5LV65a2EzppXwrlNc=</DigestValue></Reference></SignedInfo><SignatureValue>M5JxHqcOP+5Dk1KCNNey7aaAs51XFQH8/mARfaBkgl8xZdXF3K3XtkfrlR4Ind1MT25UBJJdKQQc8hd/kpNrH4PsYy6YdCy9ADimUThH28S/mFFJweBC1BvwRkNmvGhWO8mSA8kCaTEY3u84xC69eNEds4OkGPpIgFm84nTXZwA=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>u5DVtSvsQvHWqHNw7MC9SmUB3OMeXPguxZZCXybq+N3rjYzslPMJ2EHuonMUdQmbcLflYjKN/9z/aimg1+IdLGkqd3KOY3IMo8gh8TDiV3XDOY/L4jELdAvfIefx+smdFFkzOnww57DaL0tJPV/HfvuxMoCqJCq6FrYQrJaYyzk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB0TCCATqgAwIBAgIQGkRL8fNh86xM3m9VCnYS9TANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDHhwAUgBPAEgAQQBOAC0AUABDAFwAcgBuAGkAcgBlMB4XDTIyMDIxMTE1MTUzOVoXDTIzMDIxMTIxMTUzOVowJzElMCMGA1UEAx4cAFIATwBIAEEATgAtAFAAQwBcAHIAbgBpAHIAZTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAu5DVtSvsQvHWqHNw7MC9SmUB3OMeXPguxZZCXybq+N3rjYzslPMJ2EHuonMUdQmbcLflYjKN/9z/aimg1+IdLGkqd3KOY3IMo8gh8TDiV3XDOY/L4jELdAvfIefx+smdFFkzOnww57DaL0tJPV/HfvuxMoCqJCq6FrYQrJaYyzkCAwEAATANBgkqhkiG9w0BAQsFAAOBgQA/3cV2hz7rB8VY9deSLMntbA32ElEbsUC1W+72IJlXm/Mm5u4Q49GZs/bIPjFacHcn03ZtpbF+uRcsYkLAR3hbSs1Vz/H1Khg36iVehfXFP2DMoORJpqpTSJsWsHZfgDglWAZbQVtd/BYi/VUROCx3psVzIWw/VsQMHr+6WG9zUw==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

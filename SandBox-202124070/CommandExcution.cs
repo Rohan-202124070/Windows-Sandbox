@@ -33,10 +33,6 @@ namespace SandBox_202124070
                 Console.WriteLine("Ex:-   SandBox-202124070.exe" + " {0} \" C:\\TestApplication\\WindowsFormsApp.exe\" " + "{1} \"-ps 1,-rp 0,-sp 1024,-fdp 2,-fiop 1,-anhp 300,-strp 0,-uip 1\"", execution_path_key, configuration_key);
                
                 Console.WriteLine("\n-- Commands Details --\n");
-
-                Console.WriteLine("PermissionState : -ps");
-                Console.WriteLine("0-None");
-                Console.WriteLine("1-Unrestricted\n");
                 
                 Console.WriteLine("ReflectionPermission : -rp");
                 Console.WriteLine("7-AllFlags");

@@ -22,7 +22,7 @@ namespace SandBox_202124070
             return permissions;
         }
 
-        PermissionState permissionStateValue = PermissionState.Unrestricted;
+        PermissionState permissionStateValue = PermissionState.None;
         ReflectionPermissionFlag reflectionPermissionFlag = ReflectionPermissionFlag.NoFlags;
         SecurityPermissionFlag securityPermissionFlag = SecurityPermissionFlag.AllFlags;
         FileDialogPermissionAccess fileDialogPermissionAccess = FileDialogPermissionAccess.None;
@@ -31,8 +31,6 @@ namespace SandBox_202124070
         AspNetHostingPermissionLevel aspNetHostingPermissionLevel = AspNetHostingPermissionLevel.None;
         StorePermissionFlags storePermissionFlags = StorePermissionFlags.AllFlags;
         UIPermissionWindow uIPermissionWindow = UIPermissionWindow.AllWindows;
-        NetworkAccess network = NetworkAccess.Accept;
-        TransportType transport = TransportType.All;
 
         internal PermissionSet setPermissionsFromCommand(Dictionary<string, int> str_permissions, string pathToUntrusted)
         {
@@ -40,20 +38,7 @@ namespace SandBox_202124070
             {
                 foreach (var permission in str_permissions)
                 {
-                    if (!permission.Key.Equals("") && permission.Key.Equals("-ps"))
-                    {
-                        switch (permission.Value)
-                        {
-                            case 0:
-                                permissionStateValue = PermissionState.None;
-                                break;
-
-                            case 1:
-                                permissionStateValue = PermissionState.Unrestricted;
-                                break;
-                        }
-                    }
-                    else if (!permission.Key.Equals("") && permission.Key.Equals("-rp"))
+                    if (!permission.Key.Equals("") && permission.Key.Equals("-rp"))
                     {
                         switch (permission.Value)
                         {
@@ -288,21 +273,42 @@ namespace SandBox_202124070
                                 break;
                         }
                     }
-
-                    permissions = new PermissionSet(permissionStateValue);
-                    permissions.AddPermission(new DnsPermission(permissionStateValue));
-                    permissions.AddPermission(new SqlClientPermission(permissionStateValue));
-                    permissions.AddPermission(new WebPermission(permissionStateValue));
-                    permissions.AddPermission(new TypeDescriptorPermission(permissionStateValue));
-                    permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
-                    permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
-                    permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));
-                    permissions.AddPermission(new FileIOPermission(fileIOPermissionAccess, pathToUntrusted));
-                    permissions.AddPermission(new AspNetHostingPermission(aspNetHostingPermissionLevel));
-                    permissions.AddPermission(new StorePermission(storePermissionFlags));
-                    permissions.AddPermission(new UIPermission(uIPermissionWindow));
-
                 }
+                permissions = new PermissionSet(permissionStateValue);
+                permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
+                Console.WriteLine("ReflectionPermission : " + reflectionPermissionFlag.ToString());
+
+                permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
+                Console.WriteLine("SecurityPermission : " + securityPermissionFlag.ToString());
+
+                permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));
+                Console.WriteLine("FileDialogPermission : " + fileDialogPermissionAccess.ToString());
+
+                FileIOPermission fileIO;
+                if (!fileIOPermissionAccess.Equals(FileIOPermissionAccess.NoAccess))
+                {
+                    fileIO = new FileIOPermission(PermissionState.Unrestricted);
+                    fileIO.AllLocalFiles = fileIOPermissionAccess;
+                }
+                else
+                {
+                    fileIO = new FileIOPermission(PermissionState.None);
+                    fileIO.AllLocalFiles = fileIOPermissionAccess;
+                }
+
+                permissions.AddPermission(fileIO);
+                Console.WriteLine("FileIOPermission : " + fileIOPermissionAccess.ToString());
+
+                permissions.AddPermission(new AspNetHostingPermission(aspNetHostingPermissionLevel));
+                Console.WriteLine("AspNetHostingPermission : " + aspNetHostingPermissionLevel.ToString());
+
+                permissions.AddPermission(new StorePermission(storePermissionFlags));
+                Console.WriteLine("StorePermission : " + storePermissionFlags.ToString());
+
+                permissions.AddPermission(new UIPermission(uIPermissionWindow));
+                Console.WriteLine("UIPermission : " + uIPermissionWindow.ToString());
+
+                permissions.Demand();
             }
             catch (Exception ex)
             {
@@ -312,33 +318,13 @@ namespace SandBox_202124070
             return permissions;
         }
 
-        public void setAllPermissions(string pathToUntrusted, string permissionState,
+        public void setAllPermissions(string pathToUntrusted,
          string reflectionPermission, string securityPermission, string fileDialogPermission,
          string fileIOPermission, string environmentPermission, string pathList, string aspNetHostingPermission,
-         string storePermission, string UIPermission, string networkAccess, string transportType, string hostName, string portNumber)
+         string storePermission, string UIPermission)
         {
             try
             {
-                //for the NetworkAccess
-                if (null != networkAccess && !networkAccess.Equals(""))
-                {
-                    network = (NetworkAccess)Enum.Parse(typeof(NetworkAccess), networkAccess);
-                }
-                else
-                {
-                    MessageBox.Show("Please Select Network Access", "Error");
-                }
-
-                //for the Transport Type
-                if (null != transportType && !transportType.Equals(""))
-                {
-                    transport = (TransportType)Enum.Parse(typeof(TransportType), transportType);
-                }
-                else
-                {
-                    MessageBox.Show("Please Select Transport Type", "Error");
-                }
-
                 //for the UI Permission
                 if (null != environmentPermission && !environmentPermission.Equals(""))
                 {
@@ -379,25 +365,6 @@ namespace SandBox_202124070
                     MessageBox.Show("Please Select File I/O Permission", "Error");
                 }
 
-                //for the FileIO Permission Access
-                if (null != permissionState && !permissionState.Equals(""))
-                {
-                    fileIOPermissionAccess = (FileIOPermissionAccess)Enum.Parse(typeof(FileIOPermissionAccess), fileIOPermission);
-                }
-                else
-                {
-                    MessageBox.Show("Please Select File I/O Permission", "Error");
-                }
-
-                //for the PermissionState
-                if (null != permissionState && !permissionState.Equals(""))
-                {
-                    permissionStateValue = (PermissionState)Enum.Parse(typeof(PermissionState), permissionState);
-                }
-                else
-                {
-                    MessageBox.Show("Please Select Permission State", "Error");
-                }
 
                 //for the SecurityPermission
                 if (null != securityPermission && !securityPermission.Equals(""))
@@ -429,21 +396,28 @@ namespace SandBox_202124070
                     MessageBox.Show("Please Select FileDialog Permission", "Error");
                 }
 
+                FileIOPermission file = new FileIOPermission(PermissionState.None);
                 permissions = new PermissionSet(permissionStateValue);
-                permissions.AddPermission(new DnsPermission(permissionStateValue));
-                permissions.AddPermission(new SqlClientPermission(permissionStateValue));
-                permissions.AddPermission(new WebPermission(permissionStateValue));
-                permissions.AddPermission(new TypeDescriptorPermission(permissionStateValue));
-                permissions.AddPermission(new SocketPermission(
-                    network, transport, hostName, (null != portNumber && !portNumber.Equals("") ? Int32.Parse(portNumber) : 8008)));
-                permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
+             
+                FileIOPermission fileIO;
+                if (!fileIOPermission.Equals(FileIOPermissionAccess.NoAccess.ToString())) {
+                    fileIO = new FileIOPermission(PermissionState.Unrestricted);
+                    fileIO.AllLocalFiles = fileIOPermissionAccess;
+                } else
+                {
+                    fileIO = new FileIOPermission(PermissionState.None);
+                    fileIO.AllLocalFiles = fileIOPermissionAccess;
+                }
+
+                permissions.AddPermission(fileIO);
                 permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
+                permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
                 permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));
-                permissions.AddPermission(new FileIOPermission(fileIOPermissionAccess, pathToUntrusted));
                 permissions.AddPermission(new EnvironmentPermission(environmentPermissionAccess, pathList));
                 permissions.AddPermission(new AspNetHostingPermission(aspNetHostingPermissionLevel));
                 permissions.AddPermission(new StorePermission(storePermissionFlags));
                 permissions.AddPermission(new UIPermission(uIPermissionWindow));
+                permissions.Demand();
             }
             catch (Exception ex)
             {
@@ -454,21 +428,24 @@ namespace SandBox_202124070
 
         internal PermissionSet getDefaultPermission(string pathToUntrusted)
         {
-            permissions = new PermissionSet(permissionStateValue);
+            permissions = new PermissionSet(PermissionState.Unrestricted);
             permissions.AddPermission(new DnsPermission(permissionStateValue));
             permissions.AddPermission(new SqlClientPermission(permissionStateValue));
             permissions.AddPermission(new WebPermission(permissionStateValue));
             permissions.AddPermission(new TypeDescriptorPermission(permissionStateValue));
-            permissions.AddPermission(new SocketPermission(
-                network,  transport, "localhost", 8008));
             permissions.AddPermission(new ReflectionPermission(reflectionPermissionFlag));
             permissions.AddPermission(new SecurityPermission(securityPermissionFlag));
             permissions.AddPermission(new FileDialogPermission(fileDialogPermissionAccess));
-            permissions.AddPermission(new FileIOPermission(fileIOPermissionAccess, pathToUntrusted));
+
+            FileIOPermission fileIO = new FileIOPermission(PermissionState.Unrestricted);
+            fileIO.AllLocalFiles = FileIOPermissionAccess.AllAccess;
+
+            permissions.AddPermission(fileIO);
             permissions.AddPermission(new EnvironmentPermission(environmentPermissionAccess, ""));
             permissions.AddPermission(new AspNetHostingPermission(aspNetHostingPermissionLevel));
             permissions.AddPermission(new StorePermission(storePermissionFlags));
             permissions.AddPermission(new UIPermission(uIPermissionWindow));
+            permissions.Demand();
             return permissions;
         }
     }
